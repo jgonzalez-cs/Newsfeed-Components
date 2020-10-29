@@ -89,6 +89,42 @@ const data = [
   }
 ];
 
+// this is a COMPONENT - it takes raw data and returns DOM elements
+function divMaker(text, color) {
+    const theNewDiv = document.createElement("div"); // creates div element inside theNewDiv (instantiation)
+    theNewDiv.classList.add("cool-div"); // gives the div the class name "cool-div"
+    theNewDiv.textContent = text; // adding text to the div - accepts text argument
+    theNewDiv.style.color = color; // adds inline styles (color)
+
+    return theNewDiv; // RETURN
+}
+const myDiv = divMaker("Lambda is awesome", "red"); // Creates a div and stores it inside myDiv
+document.body.appendChild(myDiv)
+console.log(myDiv)
+
+function articleMaker(articleObj) {
+    const article = document.createElement('div');
+    const title = document.createElement('h2');
+    const date = document.createElement('p');
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
+    const expandButton = document.createElement('span');
+    article.appendChild(title);
+    article.appendChild(date);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(expandButton);
+
+    article.classList.add('title');
+    date.classList.add('date');
+    expandButton.classList.add('expandButton');
+
+    return article
+}
+const newArticle = articleMaker(data);
+document.body.appendChild(newArticle)
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
